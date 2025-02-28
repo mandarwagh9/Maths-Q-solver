@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Problem Solver</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- MathJax: renders LaTeX formatted math -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Math Problem Solver</h1>
+      <p class="description">Upload an image or type a math problem to get the solution</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" id="textTab">Text Input</button>
+      <button class="tab" id="imageTab">Image Upload</button>
+    </div>
+
+    <div class="input-section">
+      <div id="textInput">
+        <div class="input-group">
+          <label for="problemText">Enter your math problem:</label>
+          <textarea id="problemText" placeholder="e.g., 2x + 5 = 15 or solve for x: x^2 - 4x + 4 = 0"></textarea>
+        </div>
+      </div>
+
+      <div id="imageInput" class="hidden">
+        <div class="input-group">
+          <label>Upload an image of your math problem:</label>
+          <div class="dropzone" id="dropzone">
+            <p>Drag and drop an image here, or click to select</p>
+            <input type="file" id="fileInput" hidden accept="image/*" />
+          </div>
+          <div class="preview-container">
+            <img src="" alt="Problem preview" class="preview-image" id="imagePreview" />
+          </div>
+        </div>
+      </div>
+
+      <div class="error-message" id="errorMessage"></div>
+
+      <button id="solveButton">Solve Problem</button>
+    </div>
+
+    <div class="loading-indicator" id="loadingIndicator">
+      <div class="spinner"></div>
+      <p>Processing your problem...</p>
+    </div>
+
+    <div class="result-section" id="resultSection">
+      <h2 class="result-header">Solution</h2>
+
+      <div>
+        <h3>Problem:</h3>
+        <div class="result-box" id="problemResult"></div>
+      </div>
+
+      <div>
+        <h3>Solution:</h3>
+        <div class="result-box" id="solutionResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
